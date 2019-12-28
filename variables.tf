@@ -38,24 +38,7 @@ variable "additional_tags" {
   default     = null
 }
 
-variable "depends_on" {
-  description = "What resources should be built before this vpc?"
-  default     = null
-}
-
-variable "with_lifecycle" {
-  description = "should I enable lifecycle?, defaults NO"
-  default     = "NO"
-}
-
-variable "lifecycle_create_before_destroy" {
-  default = false
-}
-
-variable "lifecycle_ignore_changes_list" {
+variable "depends" {
   default = null
 }
 
-variable "lifecycle_prevent_destroy" {
-  default = false
-}

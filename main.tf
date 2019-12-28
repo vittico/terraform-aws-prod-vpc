@@ -20,15 +20,5 @@ resource "aws_vpc" "this" {
     var.additional_tags
   )
 
-  depends_on = var.depends_on
-
-  dynamic "lifecycle" {
-    for_each = var.with_lifecycle == "YES" ? [1] : []
-    content {
-      create_before_destroy = var.lifecycle_create_before_destroy
-      ignore_changes        = var.lifecycle_ignore_changes_list
-      prevent_destroy       = var.lifecycle_prevent_destroy
-    }
-  }
-
+  depends_on = [var.depends]
 }
