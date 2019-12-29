@@ -1,6 +1,7 @@
+# Shared vars
 variable "environment" {
   description = "This is the environment this vpc will belong to, defaults to dev, used for naming and tagging the resource"
-  default     = "dev"
+  default     = ""
 }
 
 variable "name" {
@@ -8,6 +9,7 @@ variable "name" {
   default     = "vpc"
 }
 
+# VPC vars
 variable "cidr_block" {
   description = "The CIDR block for this vpc, defaults to 10.254.0.0/16, please change this, do not use the default as it is too wide"
   default     = "10.254.0.0/16"
@@ -39,6 +41,23 @@ variable "additional_tags" {
 }
 
 variable "depends" {
-  default = null
+  description = "A list of resources we depend on"
+  default     = null
 }
 
+variable "enable_classiclink" {
+  description = "Enables classic link on this vpc"
+  default     = false
+}
+
+variable "enable_classiclink_dns_support" {
+  description = "Enables classic link dns on this vpc"
+  default     = false
+}
+
+# Subnets vars
+
+variable "az_count" {
+  description = "How many az use to spread our load? defaults to 2"
+  default     = 2
+}

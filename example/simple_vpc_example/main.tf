@@ -3,8 +3,14 @@ provider "aws" {
 }
 
 module "vpc" {
-  source     = "../../"
-  cidr_block = "192.168.50.0/24"
+  source       = "../../"
+  cidr_block   = "192.168.0.0/16"
+  name         = "test-module"
+  environment  = "dev"
+  enabled_ipv6 = true
+
+  az_count = 2
+
 
   additional_tags = merge(
     {
